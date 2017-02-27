@@ -87,7 +87,7 @@ var Line ={
     			 	   document.getElementById("HEX").value = rgbToHex(arr[0],arr[1],arr[2]);
 
     			 	    var hue = document.getElementById('hueGradient');
-						hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ', ' 
+						hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+255+", "+0+")"+ ', ' 
 						+ "rgb("+0+", "+255+", "+0+")"+ ', ' + "rgb("+0+", "+255+", "+255+")"+ ', ' + "rgb("+0+", "+0+", "+255+")" + ', ' + "rgb("+255+", "+0+", "+255+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ')';
 						
 
@@ -115,10 +115,11 @@ var Line ={
 						var value = document.getElementById('valueGradient');
 						value.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr5[0]+", "+arr5[1]+", "+arr5[2]+")"+ ', ' + "rgb("+arr6[0]+", "+arr6[1]+", "+arr6[2]+")" + ')';
                         
-                        var arrXYZ = conXYZ.rgb_xyz(arr1[0],arr1[1],arr1[2]).toString().split(',');
+                        var arrXYZ = conXYZ.rgb_xyz(arr[0],arr[1],arr[2]).toString().split(',');
 		
 						var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
 						
+						document.getElementById("alert").value = "";
 						
 						document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
 						document.getElementById("uSlider").value = document.getElementById("u").value = arrLUV[1];
@@ -277,7 +278,7 @@ var Line ={
 				 yellow.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr[0]+", "+arr[1]+", "+255+")"+ ', ' + "rgb("+arr[0]+", "+arr[1]+", "+0+")" + ')';
 
 				var hue = document.getElementById('hueGradient');
-				hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ', ' 
+				hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+255+", "+0+")"+ ', ' 
 				+ "rgb("+0+", "+255+", "+0+")"+ ', ' + "rgb("+0+", "+255+", "+255+")"+ ', ' + "rgb("+0+", "+0+", "+255+")" + ', ' + "rgb("+255+", "+0+", "+255+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ')';
 				
 				var arr3= convert.hsv_rgb(Line.Hue,0,V).toString().split(',');
@@ -294,7 +295,7 @@ var Line ={
 		
 				var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
 				
-				
+				document.getElementById("alert").value = "";
 				document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
 				document.getElementById("uSlider").value = document.getElementById("u").value = arrLUV[1];
 				document.getElementById("vvSlider").value = document.getElementById("vv").value = arrLUV[2]; 
@@ -534,6 +535,7 @@ conXYZ_RGB={
     	//rgb.redGradient.style.backgroundColor = "#A4F798";
     	//document.getElementById("CMY").value = cmy.rgb_cmy(rd,gr,bl);
     	var arr = [1-(rd/255),1-(gr/255),1-(bl/255)];
+    	document.getElementById("alert").value = "";
     	
     	document.getElementById("cyan").value = document.getElementById("cyanSlider").value = arr[0];
     	document.getElementById("magenta").value = document.getElementById("magentaSlider").value = arr[1];
@@ -569,7 +571,7 @@ conXYZ_RGB={
 		yellow.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+rd+", "+gr+", "+255+")"+ ', ' + "rgb("+rd+", "+gr+", "+0+")" + ')';
 
 		var hue = document.getElementById('hueGradient');
-		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ', ' 
+		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+255+", "+0+")"+ ', ' 
 		+ "rgb("+0+", "+255+", "+0+")"+ ', ' + "rgb("+0+", "+255+", "+255+")"+ ', ' + "rgb("+0+", "+0+", "+255+")" + ', ' + "rgb("+255+", "+0+", "+255+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ')';
 		
 		var arr6= conver.rgb_hsv(rd,gr,bl).toString().split(',');
@@ -596,7 +598,7 @@ conXYZ_RGB={
 		
 
 		
-		document.getElementById("HEX").value =arrX[0]+ ", " + arrX[1] + ", " + arrX[2];
+		document.getElementById("HEX").value =rgbToHex(rd,gr,bl);
 		//document.getElementById("GBR").value = arrXYZ[0]+ ", " + arrXYZ[1] + ", " + arrXYZ[2];
 
 
@@ -640,7 +642,7 @@ conXYZ_RGB={
 		yellow.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+rd+", "+gr+", "+255+")"+ ', ' + "rgb("+rd+", "+gr+", "+0+")" + ')';
 
 		var hue = document.getElementById('hueGradient');
-		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ', ' 
+		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+255+", "+0+")"+ ', ' 
 		+ "rgb("+0+", "+255+", "+0+")"+ ', ' + "rgb("+0+", "+255+", "+255+")"+ ', ' + "rgb("+0+", "+0+", "+255+")" + ', ' + "rgb("+255+", "+0+", "+255+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ')';
 		var arr6= conver.rgb_hsv(rd,gr,bl).toString().split(',');
 		var arr3= convert.hsv_rgb(arr6[0],0,arr6[2]).toString().split(',');
@@ -655,7 +657,7 @@ conXYZ_RGB={
    		var arrXYZ = conXYZ.rgb_xyz(rd,gr,bl).toString().split(',');
 		
 		var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
-		
+		document.getElementById("alert").value = "";
 		
 		document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
 		document.getElementById("uSlider").value = document.getElementById("u").value = arrLUV[1];
@@ -701,7 +703,7 @@ conXYZ_RGB={
 		yellow.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr[0]+", "+arr[1]+", "+255+")"+ ', ' + "rgb("+arr[0]+", "+arr[1]+", "+0+")" + ')';
 
 		var hue = document.getElementById('hueGradient');
-		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ', ' 
+		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+255+", "+0+")"+ ', ' 
 		+ "rgb("+0+", "+255+", "+0+")"+ ', ' + "rgb("+0+", "+255+", "+255+")"+ ', ' + "rgb("+0+", "+0+", "+255+")" + ', ' + "rgb("+255+", "+0+", "+255+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ')';
    		var arr6= conver.rgb_hsv(arr[0],arr[1],arr[2]).toString().split(',');
 		var arr3= convert.hsv_rgb(arr6[0],0,arr6[2]).toString().split(',');
@@ -721,6 +723,7 @@ conXYZ_RGB={
 		document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
 		document.getElementById("uSlider").value = document.getElementById("u").value = arrLUV[1];
 		document.getElementById("vvSlider").value = document.getElementById("vv").value = arrLUV[2];
+		document.getElementById("alert").value = "";
    };
    function changeHSVColor(){
    		var hue, s, v, rd, gr, bl;
@@ -757,7 +760,7 @@ conXYZ_RGB={
 		yellow.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+rd+", "+gr+", "+255+")"+ ', ' + "rgb("+rd+", "+gr+", "+0+")" + ')';
 
 		var hue = document.getElementById('hueGradient');
-		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ', ' 
+		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+255+", "+0+")"+ ', ' 
 		+ "rgb("+0+", "+255+", "+0+")"+ ', ' + "rgb("+0+", "+255+", "+255+")"+ ', ' + "rgb("+0+", "+0+", "+255+")" + ', ' + "rgb("+255+", "+0+", "+255+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ')';
 		var arr6= conver.rgb_hsv(rd,gr,bl).toString().split(',');
 		var arr3= convert.hsv_rgb(arr6[0],0,arr6[2]).toString().split(',');
@@ -772,6 +775,7 @@ conXYZ_RGB={
 		var arrXYZ = conXYZ.rgb_xyz(rd,gr,bl).toString().split(',');
 		
 		var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
+		document.getElementById("alert").value = "";
 		
 		
 		document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
@@ -800,28 +804,63 @@ conXYZ_RGB={
     	document.getElementById("hue").value = document.getElementById("hueSlider").value = arr1[0];
     	document.getElementById("s").value = document.getElementById("sSlider").value = arr1[1];
     	document.getElementById("v").value = document.getElementById("vSlider").value = arr1[2];
-    	if ((document.getElementById("redSlider").value <0 || document.getElementById("red1").value<0) || (document.getElementById("redSlider").value >255 || document.getElementById("red1").value>255)){
-    		document.getElementById("redSlider").value=0;
-    		document.getElementById("red1").value=0;
+    	if(parseInt(document.getElementById("red1").value)<0){
+    		document.getElementById("alert").value="Overflow";
+    		
+    		
     	}
-    	if ((document.getElementById("greenSlider").value <0 || document.getElementById("green1").value<0) || (document.getElementById("greenSlider").value >255 || document.getElementById("green1").value>255)){
-    		document.getElementById("greenSlider").value=0;
-    		document.getElementById("green1").value=0;
+    	else if(parseInt(document.getElementById("green1").value)<0){
+    		document.getElementById("alert").value="Overflow";
+    		
+    		
     	}
-    	if ((document.getElementById("blueSlider").value <0 || document.getElementById("blue1").value<0) || (document.getElementById("blueSlider").value >255 || document.getElementById("blue1").value>255)){
-    		document.getElementById("blueSlider").value=0;
-    		document.getElementById("blue1").value=0;
-    	}
-
-    	var arrCMY = [1-(rd/255),1-(gr/255),1-(bl/255)];
     	
-    	document.getElementById("cyan").value = document.getElementById("cyanSlider").value = arr[0];
-    	document.getElementById("magenta").value = document.getElementById("magentaSlider").value = arr[1];
-    	document.getElementById("yellow").value = document.getElementById("yellowSlider").value = arr[2];
+		else if(parseInt(document.getElementById("blue1").value)<0){
+			document.getElementById("alert").value="Overflow";   		
+    		
+    	}
+    	else if(parseInt(document.getElementById("red1").value)>255){
+    		document.getElementById("alert").value="Overflow";
+    		
+    		
+    	}
+    	
+		else if(parseInt(document.getElementById("green1").value)>255){
+			document.getElementById("alert").value="Overflow";   		
+    		
+    	}
+    	else if(parseInt(document.getElementById("blue1").value)>255){
+    		document.getElementById("alert").value="Overflow";
+    		
+    		
+    	}
+    	
+		else{
+    		document.getElementById("alert").value=""; 
+
+    	}
+    	
+
+
+    	
+
+    	
+
+    	var arrCMY = [1-(arr[0]/255),1-(arr[1]/255),1-(arr[2]/255)];
+    	
+    	document.getElementById("cyan").value = 1-(arr[0]/255);
+    	document.getElementById("magenta").value = 1-(arr[1]/255);
+    	document.getElementById("yellow").value = 1-(arr[2]/255);
+    	document.getElementById("cyanSlider").value = arr[0];
+    	document.getElementById("magentaSlider").value = arr[1];
+    	document.getElementById("yellowSlider").value = arr[2];
 
     	picker.out_color.style.backgroundColor = "rgb("+parseInt(arr[0])+", "+parseInt(arr[1])+", "+parseInt(arr[2])+")";
     	document.getElementById("HEX").value = rgbToHex(arr[0],arr[1],arr[2]);
     	block_picker.style.backgroundColor = "rgb("+convert.hsv_rgb(arr1[0],arr1[1],arr1[2])+")";
+
+
+    	
 
     	var red = document.getElementById('redGradient');
 		red.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+0+", "+parseInt(arr[1])+", "+parseInt(arr[2])+")"+ ', ' + "rgb("+255+", "+parseInt(arr[1])+", "+parseInt(arr[2])+")" + ')';
@@ -829,7 +868,6 @@ conXYZ_RGB={
 		green.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+parseInt(arr[0])+", "+0+", "+parseInt(arr[2])+")"+ ', ' + "rgb("+parseInt(arr[0])+", "+255+", "+parseInt(arr[2])+")" + ')';
 		var blue = document.getElementById('blueGradient');
 		blue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+parseInt(arr[0])+", "+parseInt(arr[1])+", "+0+")"+ ', ' + "rgb("+parseInt(arr[0])+", "+parseInt(arr[1])+", "+255+")" + ')';
-
 		
 		var cyan = document.getElementById('cyanGradient');
 		cyan.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+arr[1]+", "+arr[2]+")"+ ', ' + "rgb("+0+", "+arr[1]+", "+arr[2]+")" + ')';
@@ -839,7 +877,7 @@ conXYZ_RGB={
 		yellow.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr[0]+", "+arr[1]+", "+255+")"+ ', ' + "rgb("+arr[0]+", "+arr[1]+", "+0+")" + ')';
 
 		var hue = document.getElementById('hueGradient');
-		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ', ' 
+		hue.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+255+", "+0+", "+0+")"+ ', ' + "rgb("+255+", "+255+", "+0+")"+ ', ' 
 		+ "rgb("+0+", "+255+", "+0+")"+ ', ' + "rgb("+0+", "+255+", "+255+")"+ ', ' + "rgb("+0+", "+0+", "+255+")" + ', ' + "rgb("+255+", "+0+", "+255+")"+ ', ' + "rgb("+255+", "+0+", "+0+")"+ ')';
    		var arr6= conver.rgb_hsv(arr[0],arr[1],arr[2]).toString().split(',');
 		var arr3= convert.hsv_rgb(arr6[0],0,arr6[2]).toString().split(',');

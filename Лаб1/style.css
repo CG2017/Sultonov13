@@ -200,14 +200,14 @@
 	z-index: -2;
 	position: absolute;
 	user-select: none; 	
-	width:180px;
+	width:225px;
 	height:20px;
-	margin-left: 18px;
-	margin-top: 6px;
+	margin-left: 0.4px;
+	margin-top: 24.2px;
 }
 .scroll{
 	z-index: 2;
-	width: 180px;
+	width: 225px;
 	
 	margin-top: 6px;
 	cursor: pointer;
@@ -218,18 +218,18 @@
 }
 .cmy{
 	margin-left: 160px;
-	margin-top:40px;
+	margin-top:10px;
 
 }
 .hsv{
 	margin-left: 160px;
-	margin-top:40px;
+	margin-top:10px;
 
 
 }
 .luv{
 	margin-left: 160px;
-	margin-top:40px;
+	margin-top:10px;
 }
 .col{
 	position: absolute;
@@ -243,4 +243,15 @@
 }
 .boxHex{
 	width: 35px;
+}
+
+.alert{
+	border:0px;
+	position: absolute;
+	width: 250;
+	height: 150;
+	color:#FF0000;
+	margin-left: 650px;
+	font-size: 26px;
+	outline: none;
 }
