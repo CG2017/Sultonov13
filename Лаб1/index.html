@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="Lib.js" ></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Документ без названия</title>
+
+</head>
+
+<body>
+
+<div class="picker" id="primary_block" >
+	<div id="line">
+		<div id="arrows">
+			<div class="left_arrow"></div>
+			<div class="right_arrow"></div>
+		</div>
+	</div>
+
+	<div id="block_picker">
+
+		<img src="img/bgGradient.png" class="bk_img"><div class="circle" id="circle"></div>
+	</div>
+	<div id="out_color" class="out_color"></div>
+
+</div>
+
+<div class="hex">
+HEX: <input type="text" id="HEX" value=""/><br>
+</div>
+<!--<input type="text" id="GBR" value="" class="hex"/><br>-->
+<div id="rgb" class="rgb">
+	<div id="redGradient" class="gradient"></div>
+	R: <input type="range" min="0" max="255" id="redSlider" class="scroll" oninput="changeColor()" step="1" value="50">
+	<input type="text" id="red1" value="" class="out-text" onchange="changeText()" tabindex=1/> 
+	<div id="greenGradient" class="gradient"></div><br>
+	
+	G: <input type="range" min="0" max="255" id="greenSlider" class="scroll" oninput="changeColor()" step="1" value="50">
+	<input type="text" id="green1" value="" class="out-text" onchange="changeText()"/ tabindex=2><br>
+		
+	<div id="blueGradient" class="gradient"></div>
+
+
+	B: <input type="range" min="0" max="255" id="blueSlider" class="scroll" oninput="changeColor()" step="1" value="50">
+	<input type="text" id="blue1" value="" class="out-text" onchange="changeText()" tabindex=3/>
+	 <br>
+</div>
+<div id="cmy" class="cmy">	
+	<div id="cyanGradient" class="gradient"></div>
+	C: <input type="range" min="0" max="1" id="cyanSlider" class="scroll" oninput="changeCMYColor()" step="0.001" value="0.5">
+	<input type="text" id="cyan" value="" class="out-text" onchange="changeCMYText()" readonly /> 
+	<br>
+	
+	<div id="magentaGradient" class="gradient"></div>
+	M: <input type="range" min="0" max="1" id="magentaSlider" class="scroll" oninput="changeCMYColor()" step="0.001" value="0.5"> 
+	<input type="text" id="magenta" value="" class="out-text" onchange="changeCMYText()" readonly/>
+	<br>
+	
+	<div id="yellowGradient" class="gradient"></div>
+	Y: <input type="range" min="0" max="1" id="yellowSlider" class="scroll" oninput="changeCMYColor()" step="0.001" value="0.5">
+	<input type="text" id="yellow" value="" class="out-text" onchange="changeCMYText()" readonly />
+	 <br>
+</div>
+<div id="hsv" class="hsv">
+<div id="hueGradient" class="gradient"></div>
+	H: <input type="range" min="0" max="359" id="hueSlider" class="scroll" oninput="changeHSVColor()" step="1" value="50">	
+	<input type="text" id="hue" value="" class="out-text" onchange="changeHSVText()" readonly="" /> <br>
+
+	<div id="saturationGradient" class="gradient"></div>
+	S: <input type="range" min="0" max="100" id="sSlider" class="scroll" oninput="changeHSVColor()" step="1" value="50"> 
+	<input type="text" id="s" value="" class="out-text" onchange="changeHSVText()"/ readonly><br>
+	
+	<div id="valueGradient" class="gradient"></div>	
+	V: <input type="range" min="0" max="100" id="vSlider" class="scroll" oninput="changeHSVColor()" step="1" value="50"> 
+	<input type="text" id="v" value="" class="out-text" onchange="changeHSVText()" readonly="" /><br>
+	
+</div>
+<div id="luv" class="luv">
+	<div id="lGradient" class="gradient"></div>
+	L: <input type="range" min="1" max="100" id="lSlider" class="scroll" oninput="changeLUVColor()" step="1" value="50">	
+	<input type="text" id="l" value="" class="out-text" onchange="changeLUVText()" readonly="" /> <br>
+
+	<div id="uGradient" class="gradient"></div>
+	U: <input type="range" min="-200" max="200" id="uSlider" class="scroll" oninput="changeLUVColor()" step="1" value="50"> 
+	<input type="text" id="u" value="" class="out-text" onchange="changeLUVText()"/ readonly><br>
+	
+	<div id="vvGradient" class="gradient"></div>	
+	V: <input type="range" min="-200" max="200" id="vvSlider" class="scroll" oninput="changeLUVColor()" step="1" value="50"> 
+	<input type="text" id="vv" value="" class="out-text" onchange="changeLUVText()" readonly="" /><br>
+	
+</div>
+<script type="text/javascript" src="picker.js"></script>
+<script type="text/javascript">
+picker.init();
+</script>
+</body>
+</html>
