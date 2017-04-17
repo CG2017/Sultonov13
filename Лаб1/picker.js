@@ -1,4 +1,4 @@
-var RED
+
 var picker = {
 	V: 100,
 	S:100,
@@ -118,7 +118,32 @@ var Line ={
                         var arrXYZ = conXYZ.rgb_xyz(arr[0],arr[1],arr[2]).toString().split(',');
 		
 						var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
+						//L
+						var arr7 = conLUV_XYZ.luv_xyz(1,arrLUV[1],arrLUV[2]);
+						var arr8 = conLUV_XYZ.luv_xyz(99,arrLUV[1],arrLUV[2]);
+						var arr9 = conXYZ_RGB.xyz_rgb(arr7[0],arr7[1],arr7[2]);
+						var arr10 = conXYZ_RGB.xyz_rgb(arr8[0],arr8[1],arr8[2]);
+						//U
+						var arr11 = conLUV_XYZ.luv_xyz(arrLUV[0],-199,arrLUV[2]);
+						var arr12= conLUV_XYZ.luv_xyz(arrLUV[0],199,arrLUV[2]);
+						var arr13 = conXYZ_RGB.xyz_rgb(arr11[0],arr11[1],arr11[2]);
+						var arr14 = conXYZ_RGB.xyz_rgb(arr12[0],arr12[1],arr12[2]);
+						//V
+						var arr15 = conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[1],-199);
+						var arr16= conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[2],199);
+						var arr17 = conXYZ_RGB.xyz_rgb(arr15[0],arr15[1],arr15[2]);
+						var arr18 = conXYZ_RGB.xyz_rgb(arr16[0],arr16[1],arr16[2]);
+
+						var ll = document.getElementById('lGradient');
+						ll.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr9[0]+", "+arr9[1]+", "+arr9[2]+")"+ ', ' + "rgb("+arr10[0]+", "+arr10[1]+", "+arr10[2]+")" + ')';
 						
+						var uu = document.getElementById('uGradient');
+						uu.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr13[0]+", "+arr13[1]+", "+arr13[2]+")"+ ', ' + "rgb("+arr14[0]+", "+arr14[1]+", "+arr14[2]+")" + ')';
+						
+						var vv = document.getElementById('vvGradient');
+						vv.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr17[0]+", "+arr17[1]+", "+arr17[2]+")"+ ', ' + "rgb("+arr18[0]+", "+arr18[1]+", "+arr18[2]+")" + ')';
+						
+
 						document.getElementById("alert").value = "";
 						
 						document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
@@ -294,6 +319,33 @@ var Line ={
     			var arrXYZ = conXYZ.rgb_xyz(arr1[0],arr1[1],arr1[2]).toString().split(',');
 		
 				var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
+
+						//L
+						var arr7 = conLUV_XYZ.luv_xyz(1,arrLUV[1],arrLUV[2]);
+						var arr8 = conLUV_XYZ.luv_xyz(99,arrLUV[1],arrLUV[2]);
+						var arr9 = conXYZ_RGB.xyz_rgb(arr7[0],arr7[1],arr7[2]);
+						var arr10 = conXYZ_RGB.xyz_rgb(arr8[0],arr8[1],arr8[2]);
+						//U
+						var arr11 = conLUV_XYZ.luv_xyz(arrLUV[0],-199,arrLUV[2]);
+						var arr12= conLUV_XYZ.luv_xyz(arrLUV[0],199,arrLUV[2]);
+						var arr13 = conXYZ_RGB.xyz_rgb(arr11[0],arr11[1],arr11[2]);
+						var arr14 = conXYZ_RGB.xyz_rgb(arr12[0],arr12[1],arr12[2]);
+						//V
+						var arr15 = conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[1],-199);
+						var arr16= conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[2],199);
+						var arr17 = conXYZ_RGB.xyz_rgb(arr15[0],arr15[1],arr15[2]);
+						var arr18 = conXYZ_RGB.xyz_rgb(arr16[0],arr16[1],arr16[2]);
+
+						var ll = document.getElementById('lGradient');
+						ll.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr9[0]+", "+arr9[1]+", "+arr9[2]+")"+ ', ' + "rgb("+arr10[0]+", "+arr10[1]+", "+arr10[2]+")" + ')';
+						
+						var uu = document.getElementById('uGradient');
+						uu.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr13[0]+", "+arr13[1]+", "+arr13[2]+")"+ ', ' + "rgb("+arr14[0]+", "+arr14[1]+", "+arr14[2]+")" + ')';
+						
+						var vv = document.getElementById('vvGradient');
+						vv.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr17[0]+", "+arr17[1]+", "+arr17[2]+")"+ ', ' + "rgb("+arr18[0]+", "+arr18[1]+", "+arr18[2]+")" + ')';
+						
+
 				
 				document.getElementById("alert").value = "";
 				document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
@@ -587,6 +639,34 @@ conXYZ_RGB={
 		var arrXYZ = conXYZ.rgb_xyz(rd,gr,bl).toString().split(',');
 		
 		var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
+
+
+//L
+						var arr7 = conLUV_XYZ.luv_xyz(1,arrLUV[1],arrLUV[2]);
+						var arr8 = conLUV_XYZ.luv_xyz(99,arrLUV[1],arrLUV[2]);
+						var arr9 = conXYZ_RGB.xyz_rgb(arr7[0],arr7[1],arr7[2]);
+						var arr10 = conXYZ_RGB.xyz_rgb(arr8[0],arr8[1],arr8[2]);
+						//U
+						var arr11 = conLUV_XYZ.luv_xyz(arrLUV[0],-199,arrLUV[2]);
+						var arr12= conLUV_XYZ.luv_xyz(arrLUV[0],199,arrLUV[2]);
+						var arr13 = conXYZ_RGB.xyz_rgb(arr11[0],arr11[1],arr11[2]);
+						var arr14 = conXYZ_RGB.xyz_rgb(arr12[0],arr12[1],arr12[2]);
+						//V
+						var arr15 = conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[1],-199);
+						var arr16= conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[2],199);
+						var arr17 = conXYZ_RGB.xyz_rgb(arr15[0],arr15[1],arr15[2]);
+						var arr18 = conXYZ_RGB.xyz_rgb(arr16[0],arr16[1],arr16[2]);
+
+						var ll = document.getElementById('lGradient');
+						ll.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr9[0]+", "+arr9[1]+", "+arr9[2]+")"+ ', ' + "rgb("+arr10[0]+", "+arr10[1]+", "+arr10[2]+")" + ')';
+						
+						var uu = document.getElementById('uGradient');
+						uu.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr13[0]+", "+arr13[1]+", "+arr13[2]+")"+ ', ' + "rgb("+arr14[0]+", "+arr14[1]+", "+arr14[2]+")" + ')';
+						
+						var vv = document.getElementById('vvGradient');
+						vv.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr17[0]+", "+arr17[1]+", "+arr17[2]+")"+ ', ' + "rgb("+arr18[0]+", "+arr18[1]+", "+arr18[2]+")" + ')';
+						
+
 		
 		
 		document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
@@ -658,6 +738,33 @@ conXYZ_RGB={
 		
 		var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
 		document.getElementById("alert").value = "";
+
+		//L
+						var arr7 = conLUV_XYZ.luv_xyz(1,arrLUV[1],arrLUV[2]);
+						var arr8 = conLUV_XYZ.luv_xyz(99,arrLUV[1],arrLUV[2]);
+						var arr9 = conXYZ_RGB.xyz_rgb(arr7[0],arr7[1],arr7[2]);
+						var arr10 = conXYZ_RGB.xyz_rgb(arr8[0],arr8[1],arr8[2]);
+						//U
+						var arr11 = conLUV_XYZ.luv_xyz(arrLUV[0],-199,arrLUV[2]);
+						var arr12= conLUV_XYZ.luv_xyz(arrLUV[0],199,arrLUV[2]);
+						var arr13 = conXYZ_RGB.xyz_rgb(arr11[0],arr11[1],arr11[2]);
+						var arr14 = conXYZ_RGB.xyz_rgb(arr12[0],arr12[1],arr12[2]);
+						//V
+						var arr15 = conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[1],-199);
+						var arr16= conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[2],199);
+						var arr17 = conXYZ_RGB.xyz_rgb(arr15[0],arr15[1],arr15[2]);
+						var arr18 = conXYZ_RGB.xyz_rgb(arr16[0],arr16[1],arr16[2]);
+
+						var ll = document.getElementById('lGradient');
+						ll.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr9[0]+", "+arr9[1]+", "+arr9[2]+")"+ ', ' + "rgb("+arr10[0]+", "+arr10[1]+", "+arr10[2]+")" + ')';
+						
+						var uu = document.getElementById('uGradient');
+						uu.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr13[0]+", "+arr13[1]+", "+arr13[2]+")"+ ', ' + "rgb("+arr14[0]+", "+arr14[1]+", "+arr14[2]+")" + ')';
+						
+						var vv = document.getElementById('vvGradient');
+						vv.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr17[0]+", "+arr17[1]+", "+arr17[2]+")"+ ', ' + "rgb("+arr18[0]+", "+arr18[1]+", "+arr18[2]+")" + ')';
+						
+
 		
 		document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
 		document.getElementById("uSlider").value = document.getElementById("u").value = arrLUV[1];
@@ -719,6 +826,32 @@ conXYZ_RGB={
 		
 		var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
 		
+		//L
+						var arr7 = conLUV_XYZ.luv_xyz(1,arrLUV[1],arrLUV[2]);
+						var arr8 = conLUV_XYZ.luv_xyz(99,arrLUV[1],arrLUV[2]);
+						var arr9 = conXYZ_RGB.xyz_rgb(arr7[0],arr7[1],arr7[2]);
+						var arr10 = conXYZ_RGB.xyz_rgb(arr8[0],arr8[1],arr8[2]);
+						//U
+						var arr11 = conLUV_XYZ.luv_xyz(arrLUV[0],-199,arrLUV[2]);
+						var arr12= conLUV_XYZ.luv_xyz(arrLUV[0],199,arrLUV[2]);
+						var arr13 = conXYZ_RGB.xyz_rgb(arr11[0],arr11[1],arr11[2]);
+						var arr14 = conXYZ_RGB.xyz_rgb(arr12[0],arr12[1],arr12[2]);
+						//V
+						var arr15 = conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[1],-199);
+						var arr16= conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[2],199);
+						var arr17 = conXYZ_RGB.xyz_rgb(arr15[0],arr15[1],arr15[2]);
+						var arr18 = conXYZ_RGB.xyz_rgb(arr16[0],arr16[1],arr16[2]);
+
+						var ll = document.getElementById('lGradient');
+						ll.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr9[0]+", "+arr9[1]+", "+arr9[2]+")"+ ', ' + "rgb("+arr10[0]+", "+arr10[1]+", "+arr10[2]+")" + ')';
+						
+						var uu = document.getElementById('uGradient');
+						uu.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr13[0]+", "+arr13[1]+", "+arr13[2]+")"+ ', ' + "rgb("+arr14[0]+", "+arr14[1]+", "+arr14[2]+")" + ')';
+						
+						var vv = document.getElementById('vvGradient');
+						vv.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr17[0]+", "+arr17[1]+", "+arr17[2]+")"+ ', ' + "rgb("+arr18[0]+", "+arr18[1]+", "+arr18[2]+")" + ')';
+						
+
 		
 		document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
 		document.getElementById("uSlider").value = document.getElementById("u").value = arrLUV[1];
@@ -777,6 +910,32 @@ conXYZ_RGB={
 		var arrLUV = conLUV.xyz_luv(arrXYZ[0],arrXYZ[1],arrXYZ[2]).toString().split(',');
 		document.getElementById("alert").value = "";
 		
+		//L
+						var arr7 = conLUV_XYZ.luv_xyz(1,arrLUV[1],arrLUV[2]);
+						var arr8 = conLUV_XYZ.luv_xyz(99,arrLUV[1],arrLUV[2]);
+						var arr9 = conXYZ_RGB.xyz_rgb(arr7[0],arr7[1],arr7[2]);
+						var arr10 = conXYZ_RGB.xyz_rgb(arr8[0],arr8[1],arr8[2]);
+						//U
+						var arr11 = conLUV_XYZ.luv_xyz(arrLUV[0],-199,arrLUV[2]);
+						var arr12= conLUV_XYZ.luv_xyz(arrLUV[0],199,arrLUV[2]);
+						var arr13 = conXYZ_RGB.xyz_rgb(arr11[0],arr11[1],arr11[2]);
+						var arr14 = conXYZ_RGB.xyz_rgb(arr12[0],arr12[1],arr12[2]);
+						//V
+						var arr15 = conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[1],-199);
+						var arr16= conLUV_XYZ.luv_xyz(arrLUV[0],arrLUV[2],199);
+						var arr17 = conXYZ_RGB.xyz_rgb(arr15[0],arr15[1],arr15[2]);
+						var arr18 = conXYZ_RGB.xyz_rgb(arr16[0],arr16[1],arr16[2]);
+
+						var ll = document.getElementById('lGradient');
+						ll.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr9[0]+", "+arr9[1]+", "+arr9[2]+")"+ ', ' + "rgb("+arr10[0]+", "+arr10[1]+", "+arr10[2]+")" + ')';
+						
+						var uu = document.getElementById('uGradient');
+						uu.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr13[0]+", "+arr13[1]+", "+arr13[2]+")"+ ', ' + "rgb("+arr14[0]+", "+arr14[1]+", "+arr14[2]+")" + ')';
+						
+						var vv = document.getElementById('vvGradient');
+						vv.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr17[0]+", "+arr17[1]+", "+arr17[2]+")"+ ', ' + "rgb("+arr18[0]+", "+arr18[1]+", "+arr18[2]+")" + ')';
+						
+
 		
 		document.getElementById("lSlider").value = document.getElementById("l").value = arrLUV[0];
 		document.getElementById("uSlider").value = document.getElementById("u").value = arrLUV[1];
@@ -889,6 +1048,31 @@ conXYZ_RGB={
 		var value = document.getElementById('valueGradient');
 		value.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr5[0]+", "+arr5[1]+", "+arr5[2]+")"+ ', ' + "rgb("+arr6[0]+", "+arr6[1]+", "+arr6[2]+")" + ')';
 
+		//L
+						var arr7 = conLUV_XYZ.luv_xyz(1,u,v);
+						var arr8 = conLUV_XYZ.luv_xyz(99,u,v);
+						var arr9 = conXYZ_RGB.xyz_rgb(arr7[0],arr7[1],arr7[2]);
+						var arr10 = conXYZ_RGB.xyz_rgb(arr8[0],arr8[1],arr8[2]);
+						//U
+						var arr11 = conLUV_XYZ.luv_xyz(l,-199,v);
+						var arr12= conLUV_XYZ.luv_xyz(l,199,v);
+						var arr13 = conXYZ_RGB.xyz_rgb(arr11[0],arr11[1],arr11[2]);
+						var arr14 = conXYZ_RGB.xyz_rgb(arr12[0],arr12[1],arr12[2]);
+						//V
+						var arr15 = conLUV_XYZ.luv_xyz(l,u,-199);
+						var arr16= conLUV_XYZ.luv_xyz(l,u,199);
+						var arr17 = conXYZ_RGB.xyz_rgb(arr15[0],arr15[1],arr15[2]);
+						var arr18 = conXYZ_RGB.xyz_rgb(arr16[0],arr16[1],arr16[2]);
+
+						var ll = document.getElementById('lGradient');
+						ll.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr9[0]+", "+arr9[1]+", "+arr9[2]+")"+ ', ' + "rgb("+arr10[0]+", "+arr10[1]+", "+arr10[2]+")" + ')';
+						
+						var uu = document.getElementById('uGradient');
+						uu.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr13[0]+", "+arr13[1]+", "+arr13[2]+")"+ ', ' + "rgb("+arr14[0]+", "+arr14[1]+", "+arr14[2]+")" + ')';
+						
+						var vv = document.getElementById('vvGradient');
+						vv.style.backgroundImage = '-webkit-linear-gradient(left, ' + "rgb("+arr17[0]+", "+arr17[1]+", "+arr17[2]+")"+ ', ' + "rgb("+arr18[0]+", "+arr18[1]+", "+arr18[2]+")" + ')';
+						
 
    }
 
