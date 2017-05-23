@@ -1,0 +1,25 @@
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="by.bsu.sultonov.Controller">
+    <children>
+        <TableView fx:id="tblViewMenu" prefHeight="400.0" prefWidth="600.0"
+                   AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn minWidth="75.0" text="File" fx:id="tblFile"/>
+                <TableColumn minWidth="75.0" text="Type" fx:id="tblType"/>
+                <TableColumn minWidth="75.0" text="Size" fx:id="tblSize"/>
+                <TableColumn minWidth="75.0" text="dpi" fx:id="tblDpi"/>
+                <TableColumn minWidth="75.0" text="Compression" fx:id="tblCompression"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </children>
+</AnchorPane>
